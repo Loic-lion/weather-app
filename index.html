@@ -4,28 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="./assets/js/script.js"></script>
+    <script type="module" defer src="./assets/js/script.js"></script>
     <link rel="stylesheet" href="./assets/scss/css/main.css" />
     <title>weather app</title>
   </head>
   <body>
     <header>
-      <input type="text" placeholder="Entrez la ville" />
-      <button>Valider</button>
+      <form>
+        <label for="cityInput">Ville:</label>
+        <input
+          type="text"
+          placeholder="Entrez la ville"
+          id="cityInput"
+          list="cityList"
+        />
+        <datalist id="cityList"></datalist>
+        <button type="submit">Valider</button>
+      </form>
     </header>
     <main>
       <article class="container">
+        <section class="container_current_photo"></section>
         <section class="container_current">
           <div class="container_current_info">
             <h2></h2>
+
             <p class="container_current_info_icon"></p>
-            <p class="container_current_info_description"></p>
             <p class="container_current_info_temperature"></p>
+            <p class="container_current_info_description"></p>
+
             <p class="container_current_info_wind"></p>
           </div>
-          <div class="container_current_map"></div>
         </section>
-        <section class="container_forecast"></section>
+        <section class="container_forecast">
+          <div class="container_forecast_day1"></div>
+
+          <div class="container_forecast_day2"></div>
+
+          <div class="container_forecast_day3"></div>
+
+          <div class="container_forecast_day4"></div>
+          <div class="container_forecast_day5"></div>
+        </section>
       </article>
     </main>
   </body>
