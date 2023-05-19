@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./assets/js/script.js"></script>
+    <link rel="stylesheet" href="./assets/scss/css/main.css" />
+    <title>weather app</title>
+  </head>
+  <body>
+    <header>
+      <input type="text" placeholder="Entrez la ville" />
+      <button>Valider</button>
+    </header>
+    <main>
+      <article class="container">
+        <section class="container_current">
+          <div class="container_current_info">
+            <h2></h2>
+            <p class="container_current_info_icon"></p>
+            <p class="container_current_info_description"></p>
+            <p class="container_current_info_temperature"></p>
+            <p class="container_current_info_wind"></p>
+          </div>
+          <div class="container_current_map"></div>
+        </section>
+        <section class="container_forecast"></section>
+      </article>
+    </main>
+  </body>
+</html>
