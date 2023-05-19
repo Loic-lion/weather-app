@@ -47,7 +47,7 @@ export function getWeather() {
             let currentIconCode = currentWeather.weather[0].icon;
 
             let currentIconUrl =
-              "http://openweathermap.org/img/w/" + currentIconCode + ".png";
+              "https://openweathermap.org/img/w/" + currentIconCode + ".png";
             let currentIconImg = document.createElement("img");
             currentIconImg.src = currentIconUrl;
 
