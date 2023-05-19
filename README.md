@@ -5,7 +5,7 @@ __Création d'une appli météo avec de l'html, du scss et du js.__
 * 3 jours de travail (19/05/23, 22/05/23 et 23/05/2023 )
 * Réalisé au cours de la formation BeCode
 ## Contenu
-__Le repo comprend:__
+__Le repo(dev) comprend:__
 * Un index.html
 * Un dossier assets qui contient:
    * les fichier js
