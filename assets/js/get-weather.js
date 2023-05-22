@@ -62,23 +62,21 @@ function getWeather(city) {
             let main = document.querySelector("main");
 
             let section = document.createElement("section");
-            section.classList.add("weather-section");
+            section.classList.add("weather");
 
             let currentWeatherContainer = document.createElement("div");
-            currentWeatherContainer.classList.add("current-weather");
+            currentWeatherContainer.classList.add("weather_current");
 
             let h2 = document.createElement("h2");
             h2.textContent = "Now, " + city;
 
             let temperatureElement = document.createElement("div");
             temperatureElement.classList.add("temperature");
-            temperatureElement.textContent =
-              "Temperature: " + currentTemperature + "°C";
+            temperatureElement.textContent = currentTemperature + "°C";
 
             let descriptionElement = document.createElement("div");
             descriptionElement.classList.add("description");
-            descriptionElement.textContent =
-              "Description: " + currentDescription;
+            descriptionElement.textContent = currentDescription;
 
             let windElement = document.createElement("div");
             windElement.classList.add("wind");
@@ -89,14 +87,18 @@ function getWeather(city) {
             iconElement.appendChild(currentIconImg);
 
             currentWeatherContainer.appendChild(h2);
+            currentWeatherContainer.appendChild(iconElement);
             currentWeatherContainer.appendChild(temperatureElement);
             currentWeatherContainer.appendChild(descriptionElement);
             currentWeatherContainer.appendChild(windElement);
-            currentWeatherContainer.appendChild(iconElement);
 
             section.appendChild(currentWeatherContainer);
 
             let forecastDates = Object.keys(forecastDays).slice(1, 6);
+
+            let forecastDayContainer = document.createElement("div");
+            forecastDayContainer.classList.add("weather_forecast_day");
+
             forecastDates.forEach((date, index) => {
               let forecast = forecastDays[date];
               let temperature = forecast.main.temp;
@@ -104,30 +106,39 @@ function getWeather(city) {
               let iconCode = forecast.weather[0].icon;
 
               let forecastContainer = document.createElement("div");
-              forecastContainer.classList.add("forecast-day");
+              forecastContainer.classList.add("weather_forecast_day");
 
               let dateElement = document.createElement("div");
               dateElement.textContent = date;
+              dateElement.classList.add("weather_forecast_day_date");
 
               let iconUrl =
                 "http://openweathermap.org/img/w/" + iconCode + ".png";
               let iconImg = document.createElement("img");
               iconImg.src = iconUrl;
+              iconImg.classList.add("weather_forecast_day_icon");
 
               let temperatureElement = document.createElement("div");
-              temperatureElement.textContent =
-                "Temperature: " + temperature + "°C";
+              temperatureElement.textContent = temperature + "°C";
+              temperatureElement.classList.add(
+                "weather_forecast_day_temperature"
+              );
 
               let descriptionElement = document.createElement("div");
-              descriptionElement.textContent = "Description: " + description;
+              descriptionElement.textContent = description;
+              descriptionElement.classList.add(
+                "weather_forecast_day_description"
+              );
 
               forecastContainer.appendChild(dateElement);
               forecastContainer.appendChild(iconImg);
               forecastContainer.appendChild(temperatureElement);
               forecastContainer.appendChild(descriptionElement);
 
-              section.appendChild(forecastContainer);
+              forecastDayContainer.appendChild(forecastContainer);
             });
+
+            section.appendChild(forecastDayContainer);
 
             main.appendChild(section);
 
@@ -149,7 +160,7 @@ function getWeather(city) {
     if (storedCities) {
       cities = storedCities;
       cities.forEach((cityPosition) => {
-        city = cityPosition.city;
+        let cityName = cityPosition.city;
         let longitude = cityPosition.longitude;
         let latitude = cityPosition.latitude;
 
@@ -188,23 +199,21 @@ function getWeather(city) {
             let main = document.querySelector("main");
 
             let section = document.createElement("section");
-            section.classList.add("weather-section");
+            section.classList.add("weather");
 
             let currentWeatherContainer = document.createElement("div");
-            currentWeatherContainer.classList.add("current-weather");
+            currentWeatherContainer.classList.add("weather_current");
 
             let h2 = document.createElement("h2");
-            h2.textContent = "Now, " + city;
+            h2.textContent = "Now, " + cityName;
 
             let temperatureElement = document.createElement("div");
             temperatureElement.classList.add("temperature");
-            temperatureElement.textContent =
-              "Temperature: " + currentTemperature + "°C";
+            temperatureElement.textContent = currentTemperature + "°C";
 
             let descriptionElement = document.createElement("div");
             descriptionElement.classList.add("description");
-            descriptionElement.textContent =
-              "Description: " + currentDescription;
+            descriptionElement.textContent = currentDescription;
 
             let windElement = document.createElement("div");
             windElement.classList.add("wind");
@@ -215,14 +224,18 @@ function getWeather(city) {
             iconElement.appendChild(currentIconImg);
 
             currentWeatherContainer.appendChild(h2);
+            currentWeatherContainer.appendChild(iconElement);
             currentWeatherContainer.appendChild(temperatureElement);
             currentWeatherContainer.appendChild(descriptionElement);
             currentWeatherContainer.appendChild(windElement);
-            currentWeatherContainer.appendChild(iconElement);
 
             section.appendChild(currentWeatherContainer);
 
             let forecastDates = Object.keys(forecastDays).slice(1, 6);
+
+            let forecastDayContainer = document.createElement("div");
+            forecastDayContainer.classList.add("weather_forecast_day");
+
             forecastDates.forEach((date, index) => {
               let forecast = forecastDays[date];
               let temperature = forecast.main.temp;
@@ -230,30 +243,39 @@ function getWeather(city) {
               let iconCode = forecast.weather[0].icon;
 
               let forecastContainer = document.createElement("div");
-              forecastContainer.classList.add("forecast-day");
+              forecastContainer.classList.add("weather_forecast_day");
 
               let dateElement = document.createElement("div");
               dateElement.textContent = date;
+              dateElement.classList.add("weather_forecast_day_date");
 
               let iconUrl =
                 "http://openweathermap.org/img/w/" + iconCode + ".png";
               let iconImg = document.createElement("img");
               iconImg.src = iconUrl;
+              iconImg.classList.add("weather_forecast_day_icon");
 
               let temperatureElement = document.createElement("div");
-              temperatureElement.textContent =
-                "Temperature: " + temperature + "°C";
+              temperatureElement.textContent = temperature + "°C";
+              temperatureElement.classList.add(
+                "weather_forecast_day_temperature"
+              );
 
               let descriptionElement = document.createElement("div");
-              descriptionElement.textContent = "Description: " + description;
+              descriptionElement.textContent = description;
+              descriptionElement.classList.add(
+                "weather_forecast_day_description"
+              );
 
               forecastContainer.appendChild(dateElement);
               forecastContainer.appendChild(iconImg);
               forecastContainer.appendChild(temperatureElement);
               forecastContainer.appendChild(descriptionElement);
 
-              section.appendChild(forecastContainer);
+              forecastDayContainer.appendChild(forecastContainer);
             });
+
+            section.appendChild(forecastDayContainer);
 
             main.appendChild(section);
           });
@@ -262,24 +284,6 @@ function getWeather(city) {
   });
 }
 
-function removeCitySection(city) {
-  const main = document.querySelector("main");
-  const sections = document.querySelectorAll(".weather-section");
-  let cities = getCitiesFromLocalStorage();
+getWeather();
 
-  sections.forEach((section) => {
-    if (section.querySelector("h2").textContent.includes(city)) {
-      section.remove();
-
-      cities = cities.filter((cityPosition) => cityPosition.city !== city);
-      removeCityFromLocalStorage(cities);
-
-      if (cities.length === 0) {
-        clearCitiesFromLocalStorage();
-        main.innerHTML = "";
-      }
-    }
-  });
-}
-
-export { getWeather, removeCitySection };
+export { getWeather };

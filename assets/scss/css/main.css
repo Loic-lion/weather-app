@@ -46,4 +46,52 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+body {
+  background: radial-gradient(at right top, #3a76d6, #63d9c8);
+  height: 100vh;
+}
+body header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main {
+  display: flex;
+  justify-content: space-evenly;
+}
+body main .weather {
+  background-color: rgba(179, 194, 207, 0.315);
+  display: flex;
+  border-radius: 5px;
+}
+body main .weather_current {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main .weather_current h2 {
+  font-size: 25px;
+}
+body main .weather_current .temperature {
+  margin: 5px;
+  font-size: 20px;
+}
+body main .weather_current .description {
+  margin: 5px;
+}
+body main .weather_current .wind {
+  margin: 5px;
+}
+body main .weather_forecast_day {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main .weather_forecast_day:last-child {
+  margin-bottom: 10px;
 }/*# sourceMappingURL=main.css.map */
