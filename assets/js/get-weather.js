@@ -1,11 +1,8 @@
 import {
   getCitiesFromLocalStorage,
   addCityToLocalStorage,
-  removeCityFromLocalStorage,
-  clearCitiesFromLocalStorage,
 } from "./local-storage.js";
-
-function getWeather(city) {
+export function getWeather(city) {
   const form = document.querySelector("form");
   const key = "a1b90f946e33798b0953319a693cbb11";
   let cities = getCitiesFromLocalStorage();
@@ -91,12 +88,13 @@ function getWeather(city) {
             const apiKey = "b4puxqqaZ9NFQ2w2yDPYha1xZL31u6JoCcDBEeLUwuE";
 
             function fetchCityImage(city) {
-              const apiUrl = `https://api.unsplash.com/photos/random?query=${city}&client_id=${apiKey}`;
+              const apiUrl = `https://api.unsplash.com/search/photos?query=${city}&client_id=${apiKey}`;
 
               fetch(apiUrl)
                 .then((response) => response.json())
                 .then((data) => {
-                  const imageUrl = data.urls.regular;
+                  const firstPhoto = data.results[0];
+                  const imageUrl = firstPhoto.urls.regular;
 
                   const imageElement = document.createElement("img");
                   imageElement.classList.add("weather_current_img");
@@ -104,6 +102,7 @@ function getWeather(city) {
 
                   currentWeatherContainer.prepend(imageElement);
                 })
+
                 .catch((error) => {
                   console.log(
                     "Une erreur s'est produite lors de la récupération de l'image :",
@@ -258,12 +257,13 @@ function getWeather(city) {
             const apiKey = "b4puxqqaZ9NFQ2w2yDPYha1xZL31u6JoCcDBEeLUwuE";
 
             function fetchCityImage(cityName) {
-              const apiUrl = `https://api.unsplash.com/photos/random?query=${cityName}&client_id=${apiKey}`;
+              const apiUrl = `https://api.unsplash.com/search/photos?query=${cityName}&client_id=${apiKey}`;
 
               fetch(apiUrl)
                 .then((response) => response.json())
                 .then((data) => {
-                  const imageUrl = data.urls.regular;
+                  const firstPhoto = data.results[0];
+                  const imageUrl = firstPhoto.urls.regular;
 
                   const imageElement = document.createElement("img");
                   imageElement.classList.add("weather_current_img");
@@ -344,4 +344,4 @@ function getWeather(city) {
   });
 }
 
-export { getWeather };
+// export { getWeather };
