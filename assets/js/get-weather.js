@@ -97,7 +97,7 @@ function getWeather(city) {
             let forecastDates = Object.keys(forecastDays).slice(1, 6);
 
             let forecastDayContainer = document.createElement("div");
-            forecastDayContainer.classList.add("weather_forecast_day");
+            forecastDayContainer.classList.add("weather_forecast");
 
             forecastDates.forEach((date, index) => {
               let forecast = forecastDays[date];
@@ -234,7 +234,7 @@ function getWeather(city) {
             let forecastDates = Object.keys(forecastDays).slice(1, 6);
 
             let forecastDayContainer = document.createElement("div");
-            forecastDayContainer.classList.add("weather_forecast_day");
+            forecastDayContainer.classList.add("weather_forecast");
 
             forecastDates.forEach((date, index) => {
               let forecast = forecastDays[date];
@@ -283,7 +283,5 @@ function getWeather(city) {
     }
   });
 }
-
-getWeather();
 
 export { getWeather };

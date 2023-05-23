@@ -1,25 +1,42 @@
 body {
   background: radial-gradient(at right top, #3a76d6, #63d9c8);
   height: 100vh;
+  font-family: "Dosis", sans-serif;
+  background-attachment: fixed;
 
   header {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 4px 14px;
     align-items: center;
+    background-color: #2c6d67;
+
+    height: 70px;
   }
   main {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     .weather {
-      background-color: rgba(179, 194, 207, 0.315);
-
+      box-shadow: 0px 0px 16px 0px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      background-image: linear-gradient(
+        to right bottom,
+        #00879367,
+        #00bf7365,
+        #a6eb1265
+      );
+      width: 600px;
+      height: 375px;
       display: flex;
 
       border-radius: 5px;
       &_current {
+        margin-left: 100px;
         margin-top: 10px;
         margin-bottom: 10px;
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -38,15 +55,23 @@ body {
           margin: 5px;
         }
       }
-      &_forecast_day {
-        margin-top: 10px;
-
+      &_forecast {
+        margin-left: 50px;
+        margin-top: -10px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-
-        &:last-child {
-          margin-bottom: 10px;
+        flex-wrap: wrap;
+        height: 380px;
+        justify-content: center;
+        &_day {
+          margin-left: 15px;
+          margin-top: 10px;
+          padding: 5px;
+          background-color: rgba(240, 248, 255, 0.548);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 5px;
         }
       }
     }
