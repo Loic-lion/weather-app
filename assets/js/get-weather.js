@@ -88,16 +88,8 @@ function getWeather(city) {
 
             ///////////////////////API IMAGE/////////////////////
 
-            // Remplacez 'VILLE' par le nom de la ville pour laquelle vous souhaitez afficher l'image
-
-            // Remplacez 'VOTRE_CLE_UNSPLASH' par votre propre clé d'API Unsplash
             const apiKey = "b4puxqqaZ9NFQ2w2yDPYha1xZL31u6JoCcDBEeLUwuE";
 
-            // Obtention de l'élément div avec la classe "weather-current"
-            const weatherCurrentDiv =
-              document.querySelector(".weather_current");
-
-            // Fonction pour récupérer une image d'Unsplash basée sur le nom de la ville
             function fetchCityImage(city) {
               const apiUrl = `https://api.unsplash.com/photos/random?query=${city}&client_id=${apiKey}`;
 
@@ -106,13 +98,11 @@ function getWeather(city) {
                 .then((data) => {
                   const imageUrl = data.urls.regular;
 
-                  // Création d'un élément d'image et définition de l'URL de l'image
                   const imageElement = document.createElement("img");
                   imageElement.classList.add("weather_current_img");
                   imageElement.src = imageUrl;
 
-                  // Ajout de l'élément d'image à la div weather-current
-                  weatherCurrentDiv.appendChild(imageElement);
+                  currentWeatherContainer.prepend(imageElement);
                 })
                 .catch((error) => {
                   console.log(
@@ -122,7 +112,6 @@ function getWeather(city) {
                 });
             }
 
-            // Appel de la fonction fetchCityImage avec le nom de la ville
             fetchCityImage(city);
 
             //////////////////////SUITE ATTACHEMENT DES DIV A LA CARTE WEATHER////////
@@ -263,6 +252,36 @@ function getWeather(city) {
             let iconElement = document.createElement("div");
             iconElement.classList.add("icon");
             iconElement.appendChild(currentIconImg);
+
+            ///////////////////////API IMAGE/////////////////////
+
+            const apiKey = "b4puxqqaZ9NFQ2w2yDPYha1xZL31u6JoCcDBEeLUwuE";
+
+            function fetchCityImage(cityName) {
+              const apiUrl = `https://api.unsplash.com/photos/random?query=${cityName}&client_id=${apiKey}`;
+
+              fetch(apiUrl)
+                .then((response) => response.json())
+                .then((data) => {
+                  const imageUrl = data.urls.regular;
+
+                  const imageElement = document.createElement("img");
+                  imageElement.classList.add("weather_current_img");
+                  imageElement.src = imageUrl;
+
+                  currentWeatherContainer.prepend(imageElement);
+                })
+                .catch((error) => {
+                  console.log(
+                    "Une erreur s'est produite lors de la récupération de l'image :",
+                    error
+                  );
+                });
+            }
+
+            fetchCityImage(cityName);
+
+            //////////////////////SUITE ATTACHEMENT DES DIV A LA CARTE WEATHER////////
 
             currentWeatherContainer.appendChild(h2);
             currentWeatherContainer.appendChild(iconElement);
