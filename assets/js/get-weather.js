@@ -60,6 +60,7 @@ export function getWeather(city) {
 
             let section = document.createElement("section");
             section.classList.add("weather");
+            section.classList.add("animate");
 
             let currentWeatherContainer = document.createElement("div");
             currentWeatherContainer.classList.add("weather_current");
@@ -93,16 +94,23 @@ export function getWeather(city) {
               fetch(apiUrl)
                 .then((response) => response.json())
                 .then((data) => {
-                  const firstPhoto = data.results[0];
-                  const imageUrl = firstPhoto.urls.regular;
+                  if (data.results.length > 0) {
+                    const firstPhoto = data.results[0];
+                    const imageUrl = firstPhoto.urls.regular;
 
-                  const imageElement = document.createElement("img");
-                  imageElement.classList.add("weather_current_img");
-                  imageElement.src = imageUrl;
+                    const imageElement = document.createElement("img");
+                    imageElement.classList.add("weather_current_img");
+                    imageElement.src = imageUrl;
 
-                  currentWeatherContainer.prepend(imageElement);
+                    currentWeatherContainer.prepend(imageElement);
+                  } else {
+                    const placeholderImage = document.createElement("img");
+                    placeholderImage.classList.add("weather_current_img");
+                    placeholderImage.src = "./assets/img/deafault-search.jpg";
+
+                    currentWeatherContainer.prepend(placeholderImage);
+                  }
                 })
-
                 .catch((error) => {
                   console.log(
                     "Une erreur s'est produite lors de la récupération de l'image :",
@@ -262,14 +270,22 @@ export function getWeather(city) {
               fetch(apiUrl)
                 .then((response) => response.json())
                 .then((data) => {
-                  const firstPhoto = data.results[0];
-                  const imageUrl = firstPhoto.urls.regular;
+                  if (data.results.length > 0) {
+                    const firstPhoto = data.results[0];
+                    const imageUrl = firstPhoto.urls.regular;
 
-                  const imageElement = document.createElement("img");
-                  imageElement.classList.add("weather_current_img");
-                  imageElement.src = imageUrl;
+                    const imageElement = document.createElement("img");
+                    imageElement.classList.add("weather_current_img");
+                    imageElement.src = imageUrl;
 
-                  currentWeatherContainer.prepend(imageElement);
+                    currentWeatherContainer.prepend(imageElement);
+                  } else {
+                    const placeholderImage = document.createElement("img");
+                    placeholderImage.classList.add("weather_current_img");
+                    placeholderImage.src = "./assets/img/deafault-search.jpg";
+
+                    currentWeatherContainer.prepend(placeholderImage);
+                  }
                 })
                 .catch((error) => {
                   console.log(
