@@ -14,3 +14,28 @@
     outline: none;
   }
 }
+#button_add {
+  background: linear-gradient(to bottom, #67ad84, #206331);
+  border-style: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 4px 8px 4px 8px;
+}
+
+#button_add:hover {
+  background: linear-gradient(to bottom, #4e8164, #143d1e);
+}
+
+#button_delete {
+    background: linear-gradient(to bottom, #ad6767, #632020);
+    border-style: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 4px 8px 4px 8px;
+  }
+  
+  #button_delete:hover {
+    background: linear-gradient(to bottom, #814e4e, #3d1414);
+  }
