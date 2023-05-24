@@ -185,6 +185,49 @@ export function getWeather(city) {
               latitude: latitude,
             };
             addCityToLocalStorage(cityPosition);
+            ///////////////////// CHART.JS ///////////////////
+
+            let forecastTemperatures = Object.values(forecastDays)
+              .slice(0, 7)
+              .map((forecast) => forecast.main.temp);
+
+            let forecastDatesFormatted = Object.keys(forecastDays)
+              .slice(0, 7)
+              .map((date) => new Date(date).toLocaleDateString());
+
+            let canvas = document.createElement("canvas");
+            canvas.classList.add("weather_current_chart_graph");
+
+            let divCanvas = document.createElement("div");
+            divCanvas.classList.add("weather_current_chart");
+            divCanvas.appendChild(canvas);
+            currentWeatherContainer.appendChild(divCanvas);
+
+            let ctx = canvas.getContext("2d");
+
+            new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: forecastDatesFormatted,
+                datasets: [
+                  {
+                    label: "Temperature",
+                    data: forecastTemperatures,
+                    fill: false,
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    tension: 0.1,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+              },
+            });
           });
       })
       .catch((error) => console.log("Il y a une erreur : ", error));
@@ -352,12 +395,54 @@ export function getWeather(city) {
             });
 
             section.appendChild(forecastDayContainer);
-
+            section.classList.add("animate");
             main.appendChild(section);
+
+            ///////////////////// CHART.JS ///////////////////
+
+            let forecastTemperatures = Object.values(forecastDays)
+              .slice(0, 7)
+              .map((forecast) => forecast.main.temp);
+
+            let forecastDatesFormatted = Object.keys(forecastDays)
+              .slice(0, 7)
+              .map((date) => new Date(date).toLocaleDateString());
+
+            let canvas = document.createElement("canvas");
+            canvas.classList.add("weather_current_chart_graph");
+
+            let divCanvas = document.createElement("div");
+            divCanvas.classList.add("weather_current_chart");
+            divCanvas.appendChild(canvas);
+            currentWeatherContainer.appendChild(divCanvas);
+
+            let ctx = canvas.getContext("2d");
+
+            new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: forecastDatesFormatted,
+                datasets: [
+                  {
+                    label: "Temperature",
+                    data: forecastTemperatures,
+                    fill: false,
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    tension: 0.1,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+              },
+            });
           });
       });
     }
   });
 }
-
-// export { getWeather };
