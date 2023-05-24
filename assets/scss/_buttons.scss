@@ -15,7 +15,7 @@
   }
 }
 #button_add {
-  background: linear-gradient(to bottom, #67ad84, #206331);
+  background: linear-gradient(to bottom, #4ebe7d, #13772c);
   border-style: none;
   border-radius: 5px;
   color: #ffffff;
@@ -24,18 +24,18 @@
 }
 
 #button_add:hover {
-  background: linear-gradient(to bottom, #4e8164, #143d1e);
+  background: linear-gradient(to bottom, #3f8f62, #093f16);
 }
 
 #button_delete {
-    background: linear-gradient(to bottom, #ad6767, #632020);
-    border-style: none;
-    border-radius: 5px;
-    color: #ffffff;
-    font-size: 15px;
-    padding: 4px 8px 4px 8px;
-  }
-  
-  #button_delete:hover {
-    background: linear-gradient(to bottom, #814e4e, #3d1414);
-  }
+  background: linear-gradient(to bottom, #aa4747, #611010);
+  border-style: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 4px 8px 4px 8px;
+}
+
+#button_delete:hover {
+  background: linear-gradient(to bottom, #853535, #410a0a);
+}
