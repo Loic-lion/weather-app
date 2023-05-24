@@ -1,48 +1,27 @@
-// async function autocompleteCity(searchTerm) {
-//   const apiKey = "pV6Omh6o8mMriVDAB39/bw==M2t1Pk6cKzDsRU5w";
-//   const apiUrl = `https://api.ninjas.com/v1/city?name=${encodeURIComponent(
-//     searchTerm
-//   )}&api_key=${apiKey}`;
+export function autocomplete() {
+  let input = document.getElementById("city_input");
+  const dataList = document.getElementById("city_list");
+  if (input.value == "") {
+    return;
+  }
+  let options = {
+    method: "GET",
+    headers: { "x-api-key": "pV6Omh6o8mMriVDAB39/bw==M2t1Pk6cKzDsRU5w" },
+  };
 
-//   try {
-//     const response = await fetch(apiUrl);
-//     const data = await response.json();
+  let url = `https://api.api-ninjas.com/v1/city?limit=10&name=${input.value}`;
 
-//     if (data && data.length > 0) {
-//       const cities = data.map((city) => city.name);
-//       return cities;
-//     }
-//     return [];
-//   } catch (error) {
-//     console.error(
-//       "Une erreur s'est produite lors de la récupération des données de l'API Ninja.",
-//       error
-//     );
-//     return [];
-//   }
-// }
-
-function autocompleteCity(searchTerm) {
-  const apiKey = "pV6Omh6o8mMriVDAB39/bw==M2t1Pk6cKzDsRU5w"; // Remplacez par votre propre clé API City API de API Ninja
-  const encodedSearchTerm = encodeURIComponent(searchTerm);
-  const apiUrl = `https://api.ninjas.com/v1/cities?name=${encodedSearchTerm}&api_key=${apiKey}`;
-
-  fetch(apiUrl)
-    .then((response) => response.json())
+  fetch(url, options)
+    .then((res) => res.json())
     .then((data) => {
-      if (data && data.length > 0) {
-        const cities = data.map((city) => city.city);
-        return cities;
-      }
-      return [];
+      dataList.innerHTML = "";
+      data.forEach((element) => {
+        let option = document.createElement("option");
+        option.value = `${element.name}, ${element.country}`;
+        dataList.appendChild(option);
+      });
     })
-    .catch((error) => {
-      console.error(
-        "Une erreur s'est produite lors de la récupération des données de l'API City API de API Ninja.",
-        error
-      );
-      return [];
+    .catch((err) => {
+      console.log(`error ${err}`);
     });
 }
-
-export { autocompleteCity };
