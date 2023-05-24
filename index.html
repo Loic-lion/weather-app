@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" defer src="./assets/js/script.js"></script>
+    <link rel="stylesheet" href="assets/scss/css/main.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+    </style>
+    <title>weather app</title>
+  </head>
+  <body>
+    <header>
+      <img class="header_logo" src="./assets/img/logo-weather-app.png" />
+      <h1>Weather App</h1>
+      <form>
+        <input
+          type="text"
+          placeholder="Entrez la ville"
+          id="city_input"
+          list="city_list"
+        />
+        <datalist id="city_list"></datalist>
+        <button id="button_add" type="submit">Add</button>
+        <button id="button_delete">Delete All</button>
+      </form>
+    </header>
+    <main></main>
+  </body>
+</html>

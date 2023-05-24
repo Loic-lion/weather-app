@@ -1,0 +1,222 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  background: radial-gradient(at right top, #3a76d6, #63d9c8);
+  height: 100vh;
+  font-family: "Dosis", sans-serif;
+  background-attachment: fixed;
+}
+body header {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 4px 14px;
+  align-items: center;
+  background-color: #2c6d67;
+  height: 70px;
+}
+body header h1 {
+  font-size: 40px;
+  color: white;
+  font-weight: bolder;
+  position: relative;
+  left: -40px;
+}
+body .header_logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: relative;
+  left: -60px;
+}
+body main {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+body main .weather {
+  box-shadow: 0px 0px 16px 0px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(to right bottom, rgba(0, 135, 147, 0.4039215686), rgba(0, 191, 115, 0.3960784314), rgba(166, 235, 18, 0.3960784314));
+  width: 600px;
+  height: 375px;
+  display: flex;
+  border-radius: 5px;
+}
+body main .weather_current {
+  border-radius: 5px;
+  box-shadow: 9px 0px 20px -5px #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.185);
+  color: white;
+}
+body main .weather_current_img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 0px;
+  width: 300px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body main .weather_current .icon {
+  position: relative;
+  left: 50px;
+}
+body main .weather_current h2 {
+  margin-top: 10px;
+  font-size: 25px;
+}
+body main .weather_current .temperature {
+  margin: 5px;
+  font-size: 20px;
+  position: relative;
+  left: -50px;
+  top: -45px;
+}
+body main .weather_current .description {
+  margin: 5px;
+  position: relative;
+  left: 55px;
+  top: -45px;
+}
+body main .weather_current .wind {
+  position: relative;
+  left: -55px;
+  margin: 5px;
+  top: -71px;
+}
+body main .weather_current_chart {
+  height: 120px;
+  width: 280px;
+  position: relative;
+  top: -71px;
+  border-radius: 5px;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.4588235294);
+  background-color: rgba(240, 248, 255, 0.548);
+}
+body main .weather_forecast {
+  margin-left: 15px;
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 380px;
+  justify-content: center;
+}
+body main .weather_forecast_day {
+  margin-left: 15px;
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.4588235294);
+  background-color: rgba(240, 248, 255, 0.548);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.animate {
+  animation: up-scale 1s ease 0s 1 normal forwards;
+}
+
+@keyframes up-scale {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#city_input {
+  padding: 4px;
+  font-size: 15px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: inset;
+  border-radius: 9px;
+  box-shadow: 0px 0px 6px rgba(66, 66, 66, 0.68);
+  text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+}
+#city_input:focus {
+  outline: none;
+}
+
+#button_add {
+  background: linear-gradient(to bottom, #4ebe7d, #13772c);
+  border-style: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 4px 8px 4px 8px;
+}
+
+#button_add:hover {
+  background: linear-gradient(to bottom, #3f8f62, #093f16);
+}
+
+#button_delete {
+  background: linear-gradient(to bottom, #aa4747, #611010);
+  border-style: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 4px 8px 4px 8px;
+}
+
+#button_delete:hover {
+  background: linear-gradient(to bottom, #853535, #410a0a);
+}/*# sourceMappingURL=main.css.map */
