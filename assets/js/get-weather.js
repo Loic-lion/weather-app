@@ -150,7 +150,7 @@ export function getWeather(city) {
               dateElement.classList.add("weather_forecast_day_date");
 
               let iconUrl =
-                "http://openweathermap.org/img/w/" + iconCode + ".png";
+                "https://openweathermap.org/img/w/" + iconCode + ".png";
               let iconImg = document.createElement("img");
               iconImg.src = iconUrl;
               iconImg.classList.add("weather_forecast_day_icon");
@@ -326,7 +326,7 @@ export function getWeather(city) {
               dateElement.classList.add("weather_forecast_day_date");
 
               let iconUrl =
-                "http://openweathermap.org/img/w/" + iconCode + ".png";
+                "https://openweathermap.org/img/w/" + iconCode + ".png";
               let iconImg = document.createElement("img");
               iconImg.src = iconUrl;
               iconImg.classList.add("weather_forecast_day_icon");
