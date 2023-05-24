@@ -35,22 +35,36 @@ export function getWeather(city) {
           .then((response) => response.json())
           .then((data) => {
             let forecasts = data.list;
+            let currentWeather;
             let forecastDays = {};
-
+        
+            let currentDate = new Date();
+        
             forecasts.forEach((forecast) => {
-              let date = new Date(forecast.dt_txt).toDateString();
-              if (!forecastDays[date]) {
-                forecastDays[date] = forecast;
+              let forecastDate = new Date(forecast.dt_txt);
+              let forecastDateString = forecastDate.toDateString();
+        
+              if (forecastDateString === currentDate.toDateString()) {
+                
+                if (forecastDate.getHours() === currentDate.getHours()) {
+                  currentWeather = forecast;
+                }
+              } else if (
+                forecastDateString > currentDate.toDateString() &&
+                Object.keys(forecastDays).length < 5
+              ) {
+              
+                if (forecastDate.getHours() === 12) {
+                  forecastDays[forecastDateString] = forecast;
+                }
               }
             });
-
-            let currentWeather = forecastDays[new Date().toDateString()];
-
+        
             let currentTemperature = currentWeather.main.temp;
             let currentDescription = currentWeather.weather[0].description;
             let currentWind = currentWeather.wind.speed;
             let currentIconCode = currentWeather.weather[0].icon;
-
+        
             let currentIconUrl =
               "https://openweathermap.org/img/w/" + currentIconCode + ".png";
             let currentIconImg = document.createElement("img");
@@ -255,22 +269,36 @@ export function getWeather(city) {
           .then((response) => response.json())
           .then((data) => {
             let forecasts = data.list;
+            let currentWeather;
             let forecastDays = {};
-
+        
+            let currentDate = new Date();
+        
             forecasts.forEach((forecast) => {
-              let date = new Date(forecast.dt_txt).toDateString();
-              if (!forecastDays[date]) {
-                forecastDays[date] = forecast;
+              let forecastDate = new Date(forecast.dt_txt);
+              let forecastDateString = forecastDate.toDateString();
+        
+              if (forecastDateString === currentDate.toDateString()) {
+                
+                if (forecastDate.getHours() === currentDate.getHours()) {
+                  currentWeather = forecast;
+                }
+              } else if (
+                forecastDateString > currentDate.toDateString() &&
+                Object.keys(forecastDays).length < 5
+              ) {
+               
+                if (forecastDate.getHours() === 12) {
+                  forecastDays[forecastDateString] = forecast;
+                }
               }
             });
-
-            let currentWeather = forecastDays[new Date().toDateString()];
-
+        
             let currentTemperature = currentWeather.main.temp;
             let currentDescription = currentWeather.weather[0].description;
             let currentWind = currentWeather.wind.speed;
             let currentIconCode = currentWeather.weather[0].icon;
-
+        
             let currentIconUrl =
               "https://openweathermap.org/img/w/" + currentIconCode + ".png";
             let currentIconImg = document.createElement("img");
