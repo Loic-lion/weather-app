@@ -38,14 +38,9 @@ export function getWeather(city) {
             let forecastDays = {};
 
             forecasts.forEach((forecast) => {
-              let date = new Date(forecast.dt_txt);
-
-              if (date.getHours() === 12) {
-                let dateString = date.toDateString();
-
-                if (!forecastDays[dateString]) {
-                  forecastDays[dateString] = forecast;
-                }
+              let date = new Date(forecast.dt_txt).toDateString();
+              if (!forecastDays[date]) {
+                forecastDays[date] = forecast;
               }
             });
 
@@ -128,14 +123,11 @@ export function getWeather(city) {
 
             //////////////////////SUITE ATTACHEMENT DES DIV A LA CARTE WEATHER////////
 
-            let canvasElement = document.createElement("canvas");
-
             currentWeatherContainer.appendChild(h2);
             currentWeatherContainer.appendChild(iconElement);
             currentWeatherContainer.appendChild(temperatureElement);
             currentWeatherContainer.appendChild(descriptionElement);
             currentWeatherContainer.appendChild(windElement);
-            currentWeatherContainer.appendChild(canvasElement);
 
             section.appendChild(currentWeatherContainer);
 
@@ -223,14 +215,9 @@ export function getWeather(city) {
             let forecastDays = {};
 
             forecasts.forEach((forecast) => {
-              let date = new Date(forecast.dt_txt);
-
-              if (date.getHours() === 12) {
-                let dateString = date.toDateString();
-
-                if (!forecastDays[dateString]) {
-                  forecastDays[dateString] = forecast;
-                }
+              let date = new Date(forecast.dt_txt).toDateString();
+              if (!forecastDays[date]) {
+                forecastDays[date] = forecast;
               }
             });
 
@@ -311,14 +298,12 @@ export function getWeather(city) {
             fetchCityImage(cityName);
 
             //////////////////////SUITE ATTACHEMENT DES DIV A LA CARTE WEATHER////////
-            let canvasElement = document.createElement("canvas");
 
             currentWeatherContainer.appendChild(h2);
             currentWeatherContainer.appendChild(iconElement);
             currentWeatherContainer.appendChild(temperatureElement);
             currentWeatherContainer.appendChild(descriptionElement);
             currentWeatherContainer.appendChild(windElement);
-            currentWeatherContainer.appendChild(canvasElement);
 
             section.appendChild(currentWeatherContainer);
 

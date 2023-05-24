@@ -17,7 +17,7 @@ export function autocomplete() {
       dataList.innerHTML = "";
       data.forEach((element) => {
         let option = document.createElement("option");
-        option.value = `${element.name}, ${element.country}`;
+        option.value = `${element.name}`;
         dataList.appendChild(option);
       });
     })
