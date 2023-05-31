@@ -1,4 +1,4 @@
-# weather-app (WIP)
+# 
 ## Projet solo
 __Création d'une appli météo avec de l'html, du scss et du js.__
 * Réalisé par Lion Loïc
@@ -12,5 +12,5 @@ __Le repo(dev) comprend:__
    * les fichier js
    * les fichiers scss
 ## Aperçu
-![alt tag](https://github.com/Loic-lion/didlydoo/blob/main/img%20readme/screenshot.png?raw=true)
+github pages : https://loic-lion.github.io/weather-app/
  
