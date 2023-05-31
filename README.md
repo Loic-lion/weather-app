@@ -1,4 +1,4 @@
-# 
+# Weather-app
 ## Projet solo
 __Création d'une appli météo avec de l'html, du scss et du js.__
 * Réalisé par Lion Loïc
