@@ -12,5 +12,5 @@ __Le repo(dev) comprend:__
    * les fichier js
    * les fichiers scss
 ## Aperçu
-lien github pages (WIP) : https://loic-lion.github.io/weather-app/
+![alt tag](https://github.com/Loic-lion/didlydoo/blob/main/img%20readme/screenshot.png?raw=true)
  
