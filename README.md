@@ -13,4 +13,4 @@ __Le repo(dev) comprend:__
    * les fichiers scss
 ## Aperçu
 github pages : https://loic-lion.github.io/weather-app/
- 
+ ![alt tag](https://github.com/Loic-lion/weather-app/blob/main/assets/img/screenshot.png?raw=true)
